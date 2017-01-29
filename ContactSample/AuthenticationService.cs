@@ -3,7 +3,10 @@ using Android.Util;
 
 namespace ContactSample
 {
-    [Service(Name = "br.com.alexandremarcondes.ContactSample.AuthenticationService", Exported = true)]
+    [Service(Name = "br.com.alexandremarcondes.ContactSample.AuthenticationService",
+             IsolatedProcess = true,
+             Process = ":auth",
+             Exported = true)]
     [IntentFilter(new string[] { "android.accounts.AccountAuthenticator" })]
     [MetaData("android.accounts.AccountAuthenticator", Resource = "@xml/authenticator")]
     public class AuthenticationService : Service

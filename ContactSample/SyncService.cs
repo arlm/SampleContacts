@@ -3,7 +3,10 @@ using Android.Util;
 
 namespace ContactSample
 {
-    [Service(Name = "br.com.alexandremarcondes.ContactSample.SyncService", Exported = true)]
+    [Service(Name = "br.com.alexandremarcondes.ContactSample.SyncService",
+             IsolatedProcess=true,
+             Process = ":sync",
+             Exported = true)]
     [IntentFilter(new string[] { "android.content.SyncAdapter" })]
     [MetaData("android.content.SyncAdapter", Resource = "@xml/syncadapter")]
     [MetaData("android.provider.CONTACTS_STRUCTURE", Resource = "@xml/contacts")]

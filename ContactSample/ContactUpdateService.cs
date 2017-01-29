@@ -2,6 +2,10 @@
 
 namespace ContactSample
 {
+    [Service(Name = "br.com.alexandremarcondes.ContactSample.ContactUpdateService",
+             IsolatedProcess = true,
+             Process = ":contacts",
+             Exported = true)]
     public class ContactUpdateService : Service
     {
         public override void OnCreate ()
